@@ -11,8 +11,9 @@ def app():
 	print(bcolors.OKCYAN +"Click where you want to write." + bcolors.ENDC)
 	try:
 		time.sleep(5)
-		f = open("commands.txt", "r")
-		for word in f:
+		f = open("commands.txt", "r", encoding="ISO-8859-1")
+		Lines = f.readlines()
+		for word in Lines:
 			pyautogui.typewrite(word)
 			time.sleep(2)
 			if (word == "Q" or word == "q"):
@@ -52,7 +53,7 @@ if(choice == "y" or choice == "Y"):
 		print(bcolors.OKGREEN + 'File is saved as command.cast' + bcolors.ENDC)
 	except:
 		print("Error!")
-	f = open("command.cast", "r")
+	f = open("command.cast", "r", encoding="utf8")
 	liste =[]
 	for word in f:
 		if (len(word) <36):
